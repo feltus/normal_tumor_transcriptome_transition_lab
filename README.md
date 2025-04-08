@@ -1,16 +1,13 @@
 # normal_tumor_transcriptome_transition_lab
 
 # Background.  
-The GEMDiff repository contains the code for the diffusion model and a neural network model for a breast cancer study case.  The results of this study can be found in [X Ai et al](https://academic.oup.com/bib/article/26/2/bbaf093/8069412?utm_source=advanceaccess&utm_campaign=bib&utm_medium=email&login=true) and our [website](https://xai990.github.io/)]
+Any complex trait is controlled by multipl genes.  In this lab, you will use the AI Diffusion model (GEMDiff) to test if a target set of genes is capable of clustering sample groups and determine which genes are necessary to shift (perurb) the transcriptom eof one group into another.  The GEMDiff repository contains the code for the diffusion model and a neural network model for a breast cancer study case.  The results of this study can be found in [X Ai et al](https://academic.oup.com/bib/article/26/2/bbaf093/8069412?utm_source=advanceaccess&utm_campaign=bib&utm_medium=email&login=true) and our [website](https://xai990.github.io/)]
 
 # Useful Generative AI Prompts
-What is a diffusion model?
-
-What is RNAseq?
-
-What is the GTEX project?
-
-What is the TCGA project?
+* What is a diffusion model?
+* What is RNAseq?
+* What is the GTEX project?
+* What is the TCGA project?
 
 # Gene Expression Matrix Preprocessing
 Any normalized gene expression matrix (GEM) that contains RNAseq data for two groups should work.  Here is a repository to obtain and preprocess several co-normalized GTEX_NORMAL, TCGA_NORMAL, and TCGA_TUMOR GEMs [gembuld](https://github.com/feltus/gembuild). This workflow will prepare a series of normal (GTEX) and tunor (TCGA) co-normalized gene expression matrices (GEMs) from Wang et al (https://pubmed.ncbi.nlm.nih.gov/29664468/).  GEMs for comparable groups (e.g. NORMAL_GTEX_BREAST,TCGA_TUMOR_BRCA) will be mixed and separated into train and test GEMs for AI/ML applications.  The steps in this process are as follows:
@@ -244,12 +241,16 @@ source activate GEMDiff  #create before running script
 #Perturb samples
 ###Make sure to change the model path which is found in the train log file.###
 python scripts/perturb.py --config datasets/THCA.yaml --dir log  --model_path log/2025-04-02-11-06/model10000.pt --valid --gene_set datasets/THCATOP20MUTATE.txt 
+```
 
 # Visualize the results.
 
 The log file will contain the most perturbed genes and the log directory will contain a UMAP plot of the input groups and perturbed samples.  Here is an example of the perturbation log file with the MUC16 gene being the most perturbed:
 
 ```
+.
+.
+.
 Filter the perturbed gene -- 1 std
 The real data mean [ 0.44266433  0.46999094  0.37065968  0.3497042  -0.0493876  -0.66582197
   0.50274587  0.7668456   0.48156074  0.30529064  0.4954468   0.34648234
