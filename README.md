@@ -131,10 +131,15 @@ train:
   # log_interval: 100
 ```
 
-Here is a SLURM script written for Palmetto2 to obtain an A100 GPU node for rapid training.  Note that the SLURM script clones GEMDiff into a conda environment called GEMDiff.  You can create the GEMDiff environment using a procedure like this:
+Below is a SLURM script written for Palmetto2 at Clemson University to obtain an A100 GPU node for rapid training of the diffusion model.  Note that the SLURM script clones GEMDiff into a conda environment called GEMDiff.  
+
+You can create the GEMDiff environment using a procedure like this:
 ```
 module load anaconda3/2023.09-0
 conda create --name GEMDiff
+```
+
+Here is the SLURM script:
 ```
 #!/bin/bash
 
