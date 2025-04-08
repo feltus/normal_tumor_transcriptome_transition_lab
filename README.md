@@ -238,22 +238,19 @@ module load anaconda3/2023.09-0
 #Go to working directory
 cd /scratch/ffeltus/emt/GEMDIFF/THCA/GEMDiff
 
-# activate the created conda environment
+#Activate the created conda environment
 source activate GEMDiff  #create before running script
 
-#perturb samples
-python scripts/perturb.py --config datasets/THCA.yaml --dir log  --model_path log/2025-04-02-11-06/model10000.pt --valid --gene_set datasets/THCATOP20MUTATE.txt ###Make sure to change the model path which is found in the train log file.
+#Perturb samples
+###Make sure to change the model path which is found in the train log file.###
+python scripts/perturb.py --config datasets/THCA.yaml --dir log  --model_path log/2025-04-02-11-06/model10000.pt --valid --gene_set datasets/THCATOP20MUTATE.txt 
 
-# Visulaize the results.
+# Visualize the results.
 
 The log file will contain the most perturbed genes and the log directory will contain a UMAP plot of the input groups and perturbed samples.  Here is an example of the perturbation log file with the MUC16 gene being the most perturbed:
 
-
 ```
-.
-.
-.
-filter the perturbed gene -- 1 std
+Filter the perturbed gene -- 1 std
 The real data mean [ 0.44266433  0.46999094  0.37065968  0.3497042  -0.0493876  -0.66582197
   0.50274587  0.7668456   0.48156074  0.30529064  0.4954468   0.34648234
   0.7990788   0.6825261   0.4341889   0.3764099   0.30780873  0.4563495
@@ -281,7 +278,8 @@ The perturb data [-0.56696486]-- script_util
 The perturbation percentages between real and perturb data data [-10.4799]-- script_util
 The indentified genes are: Index(['MUC16'], dtype='object') -- 1 standard deviation of the perturbation among all 20 gene
 pertubing complete
-.
-.
-.
 ```
+
+Here is an example of the UMAP plot displaying the three sample groups distrubuted by the input gene set expression values:
+
+![EXAMPLE UMAP](https://github.com/feltus/normal_tumor_transcriptome_transition_lab/blob/main/UMAP_plot_perturb_20.png)
