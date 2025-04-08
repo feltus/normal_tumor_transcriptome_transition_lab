@@ -3,10 +3,13 @@
 # Background.  
 The GEMDiff repository contains the code for the diffusion model and a neural network model for a breast cancer study case.  The results of this study can be found in [X Ai et al](https://academic.oup.com/bib/article/26/2/bbaf093/8069412?utm_source=advanceaccess&utm_campaign=bib&utm_medium=email&login=true)] and our [website(https://xai990.github.io/)].
 
-# Useful genrative AI prompts
+# Useful Generative AI Prompts
 What is a diffusion model?
+
 What is RNAseq?
+
 What is the GTEX project?
+
 What is the TCGA project?
 
 # Gene Expression Matrix Preprocessing
