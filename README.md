@@ -1,16 +1,18 @@
 # normal_tumor_transcriptome_transition_lab
 
 # Background.  
-Any complex trait is controlled by multipl genes.  In this lab, you will use the AI Diffusion model (GEMDiff) to test if a target set of genes is capable of clustering sample groups and determine which genes are necessary to shift (perurb) the transcriptom eof one group into another.  The GEMDiff repository contains the code for the diffusion model and a neural network model for a breast cancer study case.  The results of this study can be found in [X Ai et al](https://academic.oup.com/bib/article/26/2/bbaf093/8069412?utm_source=advanceaccess&utm_campaign=bib&utm_medium=email&login=true) and our [website](https://xai990.github.io/)]
+Any complex trait is controlled by multiple genes.  In this lab, you will use the AI Diffusion model (GEMDiff) to test if a target set of genes is capable of clustering sample groups and determine which genes are necessary to shift (perturb) the transcriptome of one group into another.  The GEMDiff repository contains the code for the diffusion model and a neural network model for a breast cancer study case.  The results of this study can be found in [X Ai et al](https://academic.oup.com/bib/article/26/2/bbaf093/8069412?utm_source=advanceaccess&utm_campaign=bib&utm_medium=email&login=true) and our [website](https://xai990.github.io/).
 
 # Useful Generative AI Prompts
-* What is a diffusion model?
-* What is RNAseq?
-* What is the GTEX project?
-* What is the TCGA project?
+*What is the difference between Artificial Intelligence and Machine Learning?
+* What is a diffusion model? Please provide an example using image analytics.
+* What is a transcriptome?  Please explain by comparing bulk and single cell RNAseq for comparing normal and tumor transcriptome state.
+*What is a transcriptome state transition?  Please use the adrenal gland as an example of how normal adrenal tissue transcriptomes could transition to downstream tumor stages.
+* What is the GTEX project?  Are these normal human samples? Please use the adrenal gland as an example and discuss the available datasets. 
+* What is the TCGA project? Does it contain normal human and tumor samples? Please use the adrenal gland as an example and discuss the available datasets.
 
 # Gene Expression Matrix Preprocessing
-Any normalized gene expression matrix (GEM) that contains RNAseq data for two groups should work.  Here is a repository to obtain and preprocess several co-normalized GTEX_NORMAL, TCGA_NORMAL, and TCGA_TUMOR GEMs [gembuld](https://github.com/feltus/gembuild). This workflow will prepare a series of normal (GTEX) and tunor (TCGA) co-normalized gene expression matrices (GEMs) from Wang et al (https://pubmed.ncbi.nlm.nih.gov/29664468/).  GEMs for comparable groups (e.g. NORMAL_GTEX_BREAST,TCGA_TUMOR_BRCA) will be mixed and separated into train and test GEMs for AI/ML applications.  The steps in this process are as follows:
+Any normalized gene expression matrix (GEM) that contains RNAseq data for two groups should work.  Here is a repository to obtain and preprocess several co-normalized GTEX_NORMAL, TCGA_NORMAL, and TCGA_TUMOR GEMs [gembuld](https://github.com/feltus/gembuild). This workflow will prepare a series of normal (GTEX) and tunomA) co-normalized gene expression matrices (GEMs) from Wang et al (https://pubmed.ncbi.nlm.nih.gov/29664468/).  GEMs for comparable groups (e.g. NORMAL_GTEX_BREAST,TCGA_TUMOR_BRCA) will be mixed and separated into train and test GEMs for AI/ML applications.  The steps in this process are as follows:
 
 ```
 Download GEMs
@@ -79,13 +81,13 @@ uterus-rsem-fpkm-gtex.txt	UTERN
 ```
 
 # Selecting a gene set
-As you begin to train AI models with more than more than 64 genes, you begin to see random genes clustering samples.  We call this background classification potential which is described here: 
+As you begin to train AI models with more than 64 genes, you begin to see random genes clustering samples.  We call this background classification potential which is described here: 
 
 Targonski C, Shearer CA, Shealy BT, Smith MC and Feltus FA. 2019. Uncovering biomarker genes with enriched classification potential from Hallmark gene sets. Sci Rep 9: 9747. doi: 10.1038/s41598-019-46059-1.
 
-Thus it is important to pre-select a gene set that is less than 64 genes for testing the hypotesis that GENESET X is discriminator of the two groups and likely to be enriched for causla genetic factors that differentiate the two sample states.  Always compare the results of the target genes with an equal number of random genes.  
+Thus it is important to pre-select a gene set that is less than 64 genes for testing the hypothesis that GENESET X is discriminator of the two groups and likely to be enriched for causal genetic factors that differentiate the two sample states.  Always compare the results of the target genes with an equal number of random genes.  
 
-Here is an exampl gene set (THCATOP20MUTATE) that are the most mutated genes in thyroid cancer:
+Here is an example gene set (THCATOP20MUTATE) that are the most mutated genes in thyroid cancer:
 
 ```
 THCATOP20MUTATE	BRAF	NRAS	HRAS	MUC16	ZFHX3	EIF1AX	KMT2A	AKT1	ATM	KMT2C	KRAS	CSMD3	WNK2	PPM1D	CHEK2	ARID2	CUX1	TNC	DICER1	DNMT3A
@@ -129,9 +131,10 @@ train:
   # log_interval: 100
 ```
 
-Here is a SLURM script written for Palmetto2 to obtain an A100 GPU node for rapid training.  Note that the SLURM script clones GEMDiff into a conda environment called GEMDiff.  You can create the GEMDiff environment
-
-for you and installs it.
+Here is a SLURM script written for Palmetto2 to obtain an A100 GPU node for rapid training.  Note that the SLURM script clones GEMDiff into a conda environment called GEMDiff.  You can create the GEMDiff environment using a procedure like this:
+```
+module load anaconda3/2023.09-0
+conda create --name GEMDiff
 ```
 #!/bin/bash
 
@@ -217,7 +220,7 @@ training process completed
 ```
 
 # Perturbing from Tumor to Normal Gene Expression State
-Once the model is trained from the training GEMs that cotains both labeled groups, one can use GEMDiff to simulate the transition between groups.  The results of this simulation are visualized with a UMAP plot and the most perturbed genes can be identified in the log file. 
+Once the model is trained from the training GEMs that contains both labeled groups, one can use GEMDiff to simulate the transition between groups.  The results of this simulation are visualized with a UMAP plot and the most perturbed genes can be identified in the log file. 
 ```
 #!/bin/bash
 
@@ -281,6 +284,6 @@ The indentified genes are: Index(['MUC16'], dtype='object') -- 1 standard deviat
 pertubing complete
 ```
 
-Here is an example of the UMAP plot displaying the three sample groups distrubuted by the input gene set expression values:
+Here is an example of the UMAP plot displaying the three sample groups distributed by the input gene set expression values:
 
 !(https://github.com/feltus/normal_tumor_transcriptome_transition_lab/blob/main/UMAP_plot_perturb_20.png)
