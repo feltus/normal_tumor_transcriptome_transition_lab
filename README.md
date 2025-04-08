@@ -246,55 +246,10 @@ python scripts/perturb.py --config datasets/THCA.yaml --dir log  --model_path lo
 
 # Visulaize the results.
 
-The log file will contain the most perturbed genes and the lod directory will contain a UMAP plot of the input groups and perturbed samples.  Here is an example of the perturbation log file:
+The log file will contain the most perturbed genes and the log directory will contain a UMAP plot of the input groups and perturbed samples.  Here is an example of the perturbation log file with the MUC16 gene being the most perturbed:
 
 
 ```
-.
-.
-.
-log configure
-device information:cuda:0
-Load the config...
-reading input data from BLADN_BLCAT.train.log2
-loaded input data has 19427 genes, 261 samples
-The input gene set is THCATOP20MUTATE, contains ['BRAF', 'NRAS', 'HRAS', 'MUC16', 'ZFHX3', 'EIF1AX', 'KMT2A', 'AKT1', 'ATM', 'KMT2C', 'KRAS', 'CSMD3', 'WNK2', 'PPM1D', 'CHEK2', 'ARID2', 'CUX1', 'TNC', 'DICER1', 'DNMT3A'] genes
-The intersection geneset is: Index(['AKT1', 'ARID2', 'ATM', 'BRAF', 'CHEK2', 'CSMD3', 'CUX1', 'DICER1',
-       'DNMT3A', 'EIF1AX', 'HRAS', 'KMT2A', 'KMT2C', 'KRAS', 'MUC16', 'NRAS',
-       'PPM1D', 'TNC', 'WNK2', 'ZFHX3'],
-      dtype='object') -- dataset
-loaded selected data has 20 genes, 261 samples
-loaded input data has 2 classes
-The selected genes are: Index(['BRAF', 'KRAS', 'ATM', 'PPM1D', 'MUC16', 'CSMD3', 'CHEK2', 'AKT1',
-       'DNMT3A', 'WNK2', 'TNC', 'KMT2A', 'HRAS', 'EIF1AX', 'DICER1', 'ARID2',
-       'ZFHX3', 'KMT2C', 'CUX1', 'NRAS'],
-      dtype='object') -- dataset
-After data pre-processing, the dataset contains 20 gene.
-reading input data from BLADN_BLCAT.test.log2
-loaded input data has 19427 genes, 112 samples
-The input gene set is THCATOP20MUTATE, contains ['BRAF', 'NRAS', 'HRAS', 'MUC16', 'ZFHX3', 'EIF1AX', 'KMT2A', 'AKT1', 'ATM', 'KMT2C', 'KRAS', 'CSMD3', 'WNK2', 'PPM1D', 'CHEK2', 'ARID2', 'CUX1', 'TNC', 'DICER1', 'DNMT3A'] genes
-The intersection geneset is: Index(['AKT1', 'ARID2', 'ATM', 'BRAF', 'CHEK2', 'CSMD3', 'CUX1', 'DICER1',
-       'DNMT3A', 'EIF1AX', 'HRAS', 'KMT2A', 'KMT2C', 'KRAS', 'MUC16', 'NRAS',
-       'PPM1D', 'TNC', 'WNK2', 'ZFHX3'],
-      dtype='object') -- dataset
-loaded selected data has 20 genes, 112 samples
-loaded input data has 2 classes
-The selected genes are: Index(['BRAF', 'KRAS', 'ATM', 'PPM1D', 'MUC16', 'CSMD3', 'CHEK2', 'AKT1',
-       'DNMT3A', 'WNK2', 'TNC', 'KMT2A', 'HRAS', 'EIF1AX', 'DICER1', 'ARID2',
-       'ZFHX3', 'KMT2C', 'CUX1', 'NRAS'],
-      dtype='object') -- dataset
-creating model and diffusion ... 
-The model feature size is : 20
-.
-.
-.
-number of parameters: 1.45M
-.
-.
-.
-saving perturb data array to log/2025-04-02-14-24/reverse_sample_108x20.npz
-visulize the perturbed data and real data
-The mmd score is:0.014780950938991788
 .
 .
 .
