@@ -1,7 +1,7 @@
 # normal_tumor_transcriptome_transition_lab
 
 # Background.  
-The GEMDiff repository contains the code for the diffusion model and a neural network model for a breast cancer study case.  The results of this study can be found in [X Ai et al](https://academic.oup.com/bib/article/26/2/bbaf093/8069412?utm_source=advanceaccess&utm_campaign=bib&utm_medium=email&login=true)] and our [website(https://xai990.github.io/)].
+The GEMDiff repository contains the code for the diffusion model and a neural network model for a breast cancer study case.  The results of this study can be found in [X Ai et al](https://academic.oup.com/bib/article/26/2/bbaf093/8069412?utm_source=advanceaccess&utm_campaign=bib&utm_medium=email&login=true) and our [website](https://xai990.github.io/)]
 
 # Useful Generative AI Prompts
 What is a diffusion model?
@@ -13,7 +13,7 @@ What is the GTEX project?
 What is the TCGA project?
 
 # Gene Expression Matrix Preprocessing
-Any normalized gene expression matrix (GEM) that contains RNAseq data for two groups should work.  Here is a repository to obtain and preprocess several co-normalized GTEX_NORMAL, TCGA_NORMAL, and TCGA_TUMOR GEMs [gembuld(https://github.com/feltus/gembuild)]. This Workflow will prepare a series of normal (GTEX) and tunor (TCGA) co-normalized gene expression matrices (GEMs) from Wang et al (https://pubmed.ncbi.nlm.nih.gov/29664468/).  GEMs for comparable groups (e.g. NORMAL_GTEX_BREAST,TCGA_TUMOR_BRCA) will be mixed and separated into train and test GEMs for AI/ML applications.  The steps in this process are as follows:
+Any normalized gene expression matrix (GEM) that contains RNAseq data for two groups should work.  Here is a repository to obtain and preprocess several co-normalized GTEX_NORMAL, TCGA_NORMAL, and TCGA_TUMOR GEMs [gembuld](https://github.com/feltus/gembuild). This workflow will prepare a series of normal (GTEX) and tunor (TCGA) co-normalized gene expression matrices (GEMs) from Wang et al (https://pubmed.ncbi.nlm.nih.gov/29664468/).  GEMs for comparable groups (e.g. NORMAL_GTEX_BREAST,TCGA_TUMOR_BRCA) will be mixed and separated into train and test GEMs for AI/ML applications.  The steps in this process are as follows:
 
 ```
 Download GEMs
@@ -95,7 +95,7 @@ THCATOP20MUTATE	BRAF	NRAS	HRAS	MUC16	ZFHX3	EIF1AX	KMT2A	AKT1	ATM	KMT2C	KRAS	CSMD
 ```
 
 # Training the GEMDiff model
-Once you have preprocessed GEMs, can install and run [GEMDiff (https://github.com/xai990/GEMDiff)].  You will need train and test GEMS, a gene list, and a config file.  Make sure to put all these datasets into a directory path that will be visible to GEMDiff.
+Once you have preprocessed GEMs, can install and run [GEMDiff](https://github.com/xai990/GEMDiff).  You will need train and test GEMS, a gene list, and a config file.  Make sure to put all these datasets into a directory path that will be visible to GEMDiff.
 
 Here is an example of a config file:
 ```
