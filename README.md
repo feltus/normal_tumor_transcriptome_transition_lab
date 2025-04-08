@@ -282,4 +282,4 @@ pertubing complete
 
 Here is an example of the UMAP plot displaying the three sample groups distrubuted by the input gene set expression values:
 
-![EXAMPLE UMAP](https://github.com/feltus/normal_tumor_transcriptome_transition_lab/blob/main/UMAP_plot_perturb_20.png)
+!(https://github.com/feltus/normal_tumor_transcriptome_transition_lab/blob/main/UMAP_plot_perturb_20.png)
