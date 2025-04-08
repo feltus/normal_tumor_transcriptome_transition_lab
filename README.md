@@ -190,7 +190,9 @@ The selected genes are: Index(['BRAF', 'KRAS', 'ATM', 'PPM1D', 'MUC16', 'CSMD3',
       dtype='object') -- dataset
 After data pre-processing, the dataset contains 20 gene.
 The size of train dataset: (261, 20)
-
+.
+.
+.
 train the model:
 The loss is : 1.1385488510131836 at 0 epoch
 The loss is : 0.061073221266269684 at 500 epoch
@@ -208,15 +210,12 @@ The loss is : 0.1990010291337967 at 6000 epoch
 The loss is : 0.016131063923239708 at 6500 epoch
 The loss is : 0.018425656482577324 at 7000 epoch
 The loss is : 0.019640332087874413 at 7500 epoch
-.
-.
-.
 The loss is : 0.11051638424396515 at 8000 epoch
 The loss is : 0.028280073776841164 at 8500 epoch
 The loss is : 0.034478265792131424 at 9000 epoch
 The loss is : 0.02980395220220089 at 9500 epoch
 The loss is : 0.041882146149873734 at 10000 epoch
-Saved checkpoint to log/2025-04-02-11-06/model10000.pt
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Saved checkpoint to log/2025-04-02-11-06/model10000.pt
 training process completed
 ```
 
@@ -251,14 +250,9 @@ The log file will contain the most perturbed genes and the lod directory will co
 
 
 ```
-/home/ffeltus/.conda/envs/GEMDiff/lib/python3.11/site-packages/numba/np/ufunc/dufunc.py:343: NumbaWarning: Compilation requested for previously compiled argument types ((uint32,)). This has no effect and perhaps indicates a bug in the calling code (compiling a ufunc more than once for the same signature
-  warnings.warn(msg, errors.NumbaWarning)
-/home/ffeltus/.conda/envs/GEMDiff/lib/python3.11/site-packages/numba/np/ufunc/dufunc.py:343: NumbaWarning: Compilation requested for previously compiled argument types ((uint32,)). This has no effect and perhaps indicates a bug in the calling code (compiling a ufunc more than once for the same signature
-  warnings.warn(msg, errors.NumbaWarning)
-/home/ffeltus/.conda/envs/GEMDiff/lib/python3.11/site-packages/numba/np/ufunc/dufunc.py:343: NumbaWarning: Compilation requested for previously compiled argument types ((uint32,)). This has no effect and perhaps indicates a bug in the calling code (compiling a ufunc more than once for the same signature
-  warnings.warn(msg, errors.NumbaWarning)
-Logging to log/2025-04-02-14-24
-**********************************
+.
+.
+.
 log configure
 device information:cuda:0
 Load the config...
@@ -291,80 +285,19 @@ The selected genes are: Index(['BRAF', 'KRAS', 'ATM', 'PPM1D', 'MUC16', 'CSMD3',
       dtype='object') -- dataset
 creating model and diffusion ... 
 The model feature size is : 20
-{'data': {'data_dir': 'datasets/', 'dir_out': 'results', 'gene_selection': None, 'drop_fraction': 0, 'train_path': 'datasets/BLADN_BLCAT.train.log2', 'train_label_path': 'datasets/BLADN_BLCAT.train.label', 'test_path': 'datasets/BLADN_BLCAT.test.log2', 'test_label_path': 'datasets/BLADN_BLCAT.test.label', 'filter': None, 'corerate': 1}, 'train': {'microbatch': 16, 'log_interval': 1000, 'save_interval': 20000, 'schedule_plot': False, 'resume_checkpoint': '', 'ema_rate': 0.9999, 'num_epoch': 40001, 'schedule_sampler': 'uniform', 'lr': 3e-05, 'batch_size': 16}, 'perturb': {}, 'umap': {'n_neighbors': 90, 'min_dist': 0.3}, 'model': {'feature_size': 20, 'patch_size': 20, 'dropout': 0.0, 'class_cond': True, 'n_embd': 160, 'n_head': 2, 'n_layer': 4}, 'diffusion': {'diffusion_steps': 1000, 'noise_schedule': 'cosine', 'linear_start': 0.0001, 'linear_end': 0.0195, 'log_every_t': 10, 'schedule_sampler': 'uniform', 'learn_sigma': False, 'rescale_timesteps': True, 'timestep_respacing': ''}}
+.
+.
+.
 number of parameters: 1.45M
-/scratch/ffeltus/emt/GEMDIFF/BLCA/GEMDiff/scripts/perturb.py:84: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  state_dict = th.load(f"{args.model_path}")
-pertubing the source to target
-
-Sampling latent:   0%|                                                                                                                            | 0/1000 [00:00<?, ?it/s]
-Sampling latent:   0%|                                                                                                                    | 1/1000 [00:02<36:46,  2.21s/it]
-Sampling latent:   4%|████▎                                                                                                              | 38/1000 [00:02<00:42, 22.87it/s]
-Sampling latent:   8%|████████▋                                                                                                          | 75/1000 [00:02<00:18, 50.52it/s]
-Sampling latent:  11%|████████████▊                                                                                                     | 112/1000 [00:02<00:10, 83.09it/s]
-Sampling latent:  15%|████████████████▊                                                                                                | 149/1000 [00:02<00:07, 119.51it/s]
-Sampling latent:  19%|█████████████████████                                                                                            | 186/1000 [00:02<00:05, 157.92it/s]
-Sampling latent:  22%|█████████████████████████▏                                                                                       | 223/1000 [00:02<00:03, 195.96it/s]
-Sampling latent:  26%|█████████████████████████████▍                                                                                   | 260/1000 [00:02<00:03, 231.33it/s]
-Sampling latent:  30%|█████████████████████████████████▌                                                                               | 297/1000 [00:03<00:02, 262.47it/s]
-Sampling latent:  33%|█████████████████████████████████████▋                                                                           | 334/1000 [00:03<00:02, 288.39it/s]
-Sampling latent:  37%|█████████████████████████████████████████▉                                                                       | 371/1000 [00:03<00:02, 309.14it/s]
-Sampling latent:  41%|██████████████████████████████████████████████                                                                   | 408/1000 [00:03<00:01, 324.55it/s]
-Sampling latent:  44%|██████████████████████████████████████████████████▎                                                              | 445/1000 [00:03<00:01, 336.81it/s]
-Sampling latent:  48%|██████████████████████████████████████████████████████▍                                                          | 482/1000 [00:03<00:01, 345.84it/s]
-Sampling latent:  52%|██████████████████████████████████████████████████████████▋                                                      | 519/1000 [00:03<00:01, 351.94it/s]
-Sampling latent:  56%|██████████████████████████████████████████████████████████████▊                                                  | 556/1000 [00:03<00:01, 356.78it/s]
-Sampling latent:  59%|███████████████████████████████████████████████████████████████████                                              | 593/1000 [00:03<00:01, 360.22it/s]
-Sampling latent:  63%|███████████████████████████████████████████████████████████████████████▏                                         | 630/1000 [00:03<00:01, 362.69it/s]
-Sampling latent:  67%|███████████████████████████████████████████████████████████████████████████▎                                     | 667/1000 [00:04<00:00, 364.53it/s]
-Sampling latent:  70%|███████████████████████████████████████████████████████████████████████████████▌                                 | 704/1000 [00:04<00:00, 365.71it/s]
-Sampling latent:  74%|███████████████████████████████████████████████████████████████████████████████████▋                             | 741/1000 [00:04<00:00, 366.50it/s]
-Sampling latent:  78%|███████████████████████████████████████████████████████████████████████████████████████▉                         | 778/1000 [00:04<00:00, 367.20it/s]
-Sampling latent:  82%|████████████████████████████████████████████████████████████████████████████████████████████                     | 815/1000 [00:04<00:00, 367.57it/s]
-Sampling latent:  85%|████████████████████████████████████████████████████████████████████████████████████████████████▎                | 852/1000 [00:04<00:00, 367.79it/s]
-Sampling latent:  89%|████████████████████████████████████████████████████████████████████████████████████████████████████▍            | 889/1000 [00:04<00:00, 367.89it/s]
-Sampling latent:  93%|████████████████████████████████████████████████████████████████████████████████████████████████████████▋        | 926/1000 [00:04<00:00, 368.02it/s]
-Sampling latent:  96%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▊    | 963/1000 [00:04<00:00, 367.97it/s]
-Sampling latent: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:04<00:00, 367.94it/s]
-Sampling latent: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:04<00:00, 203.06it/s]
-
-Sampling t:   0%|                                                                                                                                 | 0/1000 [00:00<?, ?it/s]
-Sampling t:   0%|                                                                                                                         | 1/1000 [00:00<07:09,  2.32it/s]
-Sampling t:   3%|████                                                                                                                    | 34/1000 [00:00<00:11, 83.84it/s]
-Sampling t:   7%|████████                                                                                                               | 68/1000 [00:00<00:06, 150.54it/s]
-Sampling t:  10%|████████████                                                                                                          | 102/1000 [00:00<00:04, 201.36it/s]
-Sampling t:  14%|████████████████                                                                                                      | 136/1000 [00:00<00:03, 239.06it/s]
-Sampling t:  17%|████████████████████                                                                                                  | 170/1000 [00:00<00:03, 266.74it/s]
-Sampling t:  20%|████████████████████████                                                                                              | 204/1000 [00:01<00:02, 286.51it/s]
-Sampling t:  24%|████████████████████████████                                                                                          | 238/1000 [00:01<00:02, 300.84it/s]
-Sampling t:  27%|████████████████████████████████                                                                                      | 272/1000 [00:01<00:02, 311.25it/s]
-Sampling t:  31%|████████████████████████████████████                                                                                  | 306/1000 [00:01<00:02, 318.77it/s]
-Sampling t:  34%|████████████████████████████████████████                                                                              | 340/1000 [00:01<00:02, 324.01it/s]
-Sampling t:  37%|████████████████████████████████████████████▏                                                                         | 374/1000 [00:01<00:01, 327.55it/s]
-Sampling t:  41%|████████████████████████████████████████████████▏                                                                     | 408/1000 [00:01<00:01, 330.00it/s]
-Sampling t:  44%|████████████████████████████████████████████████████▏                                                                 | 442/1000 [00:01<00:01, 332.65it/s]
-Sampling t:  48%|████████████████████████████████████████████████████████▏                                                             | 476/1000 [00:01<00:01, 333.89it/s]
-Sampling t:  51%|████████████████████████████████████████████████████████████▏                                                         | 510/1000 [00:01<00:01, 334.48it/s]
-Sampling t:  54%|████████████████████████████████████████████████████████████████▏                                                     | 544/1000 [00:02<00:01, 334.94it/s]
-Sampling t:  58%|████████████████████████████████████████████████████████████████████▏                                                 | 578/1000 [00:02<00:01, 335.03it/s]
-Sampling t:  61%|████████████████████████████████████████████████████████████████████████▏                                             | 612/1000 [00:02<00:01, 333.55it/s]
-Sampling t:  65%|████████████████████████████████████████████████████████████████████████████▏                                         | 646/1000 [00:02<00:01, 334.30it/s]
-Sampling t:  68%|████████████████████████████████████████████████████████████████████████████████▏                                     | 680/1000 [00:02<00:00, 334.68it/s]
-Sampling t:  71%|████████████████████████████████████████████████████████████████████████████████████▎                                 | 714/1000 [00:02<00:00, 334.98it/s]
-Sampling t:  75%|████████████████████████████████████████████████████████████████████████████████████████▎                             | 748/1000 [00:02<00:00, 335.25it/s]
-Sampling t:  78%|████████████████████████████████████████████████████████████████████████████████████████████▎                         | 782/1000 [00:02<00:00, 335.48it/s]
-Sampling t:  82%|████████████████████████████████████████████████████████████████████████████████████████████████▎                     | 816/1000 [00:02<00:00, 335.61it/s]
-Sampling t:  85%|████████████████████████████████████████████████████████████████████████████████████████████████████▎                 | 850/1000 [00:02<00:00, 335.71it/s]
-Sampling t:  88%|████████████████████████████████████████████████████████████████████████████████████████████████████████▎             | 884/1000 [00:03<00:00, 335.78it/s]
-Sampling t:  92%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▎         | 918/1000 [00:03<00:00, 335.72it/s]
-Sampling t:  95%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎     | 952/1000 [00:03<00:00, 335.64it/s]
-Sampling t:  99%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎ | 986/1000 [00:03<00:00, 335.54it/s]
-Sampling t: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:03<00:00, 293.36it/s]
+.
+.
+.
 saving perturb data array to log/2025-04-02-14-24/reverse_sample_108x20.npz
 visulize the perturbed data and real data
 The mmd score is:0.014780950938991788
-/home/ffeltus/.conda/envs/GEMDiff/lib/python3.11/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
-  warn(
+.
+.
+.
 filter the perturbed gene -- 1 std
 The real data mean [ 0.44266433  0.46999094  0.37065968  0.3497042  -0.0493876  -0.66582197
   0.50274587  0.7668456   0.48156074  0.30529064  0.4954468   0.34648234
@@ -393,5 +326,7 @@ The perturb data [-0.56696486]-- script_util
 The perturbation percentages between real and perturb data data [-10.4799]-- script_util
 The indentified genes are: Index(['MUC16'], dtype='object') -- 1 standard deviation of the perturbation among all 20 gene
 pertubing complete
-[rank0]:[W402 14:24:36.814764033 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
+.
+.
+.
 ```
